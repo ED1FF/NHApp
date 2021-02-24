@@ -11,7 +11,7 @@ class MyApp extends StatelessWidget {
         appBar: AppBar(
           title: const Text('NHApp'),
         ),
-        body: const Text('asdf'),
+        body: const Image(image: NetworkImage('https://i.nhentai.net/galleries/1855314/1.jpg'),),
       ),
     );
   }
