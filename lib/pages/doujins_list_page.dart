@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:nh_android_app/components/doujin_list_item.dart';
 import 'package:nh_android_app/models/doijin.dart';
+import 'package:nh_android_app/services/api_service.dart';
 
 class DoujinsListPage extends StatelessWidget {
   const DoujinsListPage({Key key}) : super(key: key);
@@ -13,19 +14,15 @@ class DoujinsListPage extends StatelessWidget {
           title: const Text('NHApp'),
         ),
         body: SingleChildScrollView(
-          child: Column(
-            children: [
-              DoujinListItem(Doujin(3, 3, 'Test doujin',
-                  'https://i.nhentai.net/galleries/1855314/1.jpg')),
-              DoujinListItem(Doujin(3, 3, 'Test doujin',
-                  'https://i.nhentai.net/galleries/1855314/1.jpg')),
-              DoujinListItem(Doujin(3, 3, 'Test doujin',
-                  'https://i.nhentai.net/galleries/1855314/1.jpg')),
-              DoujinListItem(Doujin(3, 3, 'Test doujin',
-                  'https://i.nhentai.net/galleries/1855314/1.jpg')),
-              DoujinListItem(Doujin(3, 3, 'Test doujin',
-                  'https://i.nhentai.net/galleries/1855314/1.jpg')),
-            ],
+          child: FutureBuilder(
+            future: ApiService().getDoujins(),
+            builder: (context, snapshot) {
+              return Column(
+                children: [
+                  Text(snapshot.data),
+                ],
+              );
+            },
           ),
         ),
       ),
