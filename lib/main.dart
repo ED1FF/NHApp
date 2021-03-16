@@ -7,11 +7,17 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'NHApp',
+      theme: ThemeData(
+        brightness: Brightness.dark,
+        appBarTheme: AppBarTheme(color: Colors.pink),
+      ),
       home: Scaffold(
         appBar: AppBar(
           title: const Text('NHApp'),
         ),
-        body: const Image(image: NetworkImage('https://i.nhentai.net/galleries/1855314/1.jpg'),),
+        body: const Image(
+          image: NetworkImage('https://i.nhentai.net/galleries/1855314/1.jpg'),
+        ),
       ),
     );
   }
