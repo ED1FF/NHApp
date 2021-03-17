@@ -17,11 +17,15 @@ class DoujinsListPage extends StatelessWidget {
           child: FutureBuilder(
             future: ApiService().getDoujins(),
             builder: (context, snapshot) {
-              return Column(
-                children: [
-                  Text(snapshot.data),
-                ],
-              );
+              return snapshot.hasData == false
+                  ? Center(child: Text('Loading'))
+                  : Column(
+                      children: [
+                        DoujinListItem(
+                          Doujin.fromJson(snapshot.data[0]),
+                        ),
+                      ],
+                    );
             },
           ),
         ),

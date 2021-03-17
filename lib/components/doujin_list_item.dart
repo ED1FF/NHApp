@@ -25,7 +25,7 @@ class DoujinListItem extends StatelessWidget {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.all(25.0),
+                padding: const EdgeInsets.all(10.0),
                 child: Text(
                   doujin.title,
                   style: TextStyle(fontWeight: FontWeight.w700),
