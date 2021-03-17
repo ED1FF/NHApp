@@ -7,8 +7,12 @@ class Doujin {
   Doujin(this.id, this.mediaId, this.title, this.thumbnail);
 
   Doujin.fromJson(Map<String, dynamic> json)
-      : id = int.parse(json["id"]),
-        mediaId = int.parse(json["media_id"]),
+      : id = json["id"].runtimeType == String
+            ? int.parse(json['id'])
+            : json['id'],
+        mediaId = json["media_id"].runtimeType == String
+            ? int.parse(json["media_id"])
+            : json["media_id"],
         title = json["title"]["english"],
         thumbnail = json["thumbnail"]["url"];
 }

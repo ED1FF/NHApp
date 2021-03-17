@@ -20,11 +20,10 @@ class DoujinsListPage extends StatelessWidget {
               return snapshot.hasData == false
                   ? Center(child: Text('Loading'))
                   : Column(
-                      children: [
-                        DoujinListItem(
-                          Doujin.fromJson(snapshot.data[0]),
-                        ),
-                      ],
+                      children: snapshot.data
+                          .map<Widget>((doujin) =>
+                              DoujinListItem(Doujin.fromJson(doujin)))
+                          .toList(),
                     );
             },
           ),
