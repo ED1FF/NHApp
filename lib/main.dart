@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nh_android_app/pages/doujins_list_page.dart';
 
 void main() => runApp(MyApp());
 
@@ -11,14 +12,7 @@ class MyApp extends StatelessWidget {
         brightness: Brightness.dark,
         appBarTheme: AppBarTheme(color: Colors.pink),
       ),
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text('NHApp'),
-        ),
-        body: const Image(
-          image: NetworkImage('https://i.nhentai.net/galleries/1855314/1.jpg'),
-        ),
-      ),
+      home: DoujinsListPage(),
     );
   }
 }
