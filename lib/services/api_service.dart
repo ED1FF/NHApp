@@ -10,7 +10,6 @@ class ApiService {
   Future<List<dynamic>> getDoujins() async {
     try {
       final Response<dynamic> responce = await _dio.get('/api/doujins');
-      print(responce.data);
       return responce.data;
     } catch (e) {
       print("Exception occured: $e");
