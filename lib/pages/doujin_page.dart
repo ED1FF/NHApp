@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nh_android_app/components/doujin_page_list.dart';
 import 'package:nh_android_app/models/doijin.dart';
 
 class DoujinPage extends StatelessWidget {
@@ -12,22 +13,26 @@ class DoujinPage extends StatelessWidget {
         appBar: AppBar(
           title: Text(doujin.title),
         ),
-        body: Padding(
-          padding: const EdgeInsets.all(25.0),
-          child: Column(
-            children: [
-              Image.network(doujin.cover),
-              SizedBox(height: 20),
-              Text(
-                doujin.title,
-                style: TextStyle(
-                  fontSize: 20.0,
-                  fontWeight: FontWeight.bold,
+        body: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.all(25.0),
+            child: Column(
+              children: [
+                Image.network(doujin.cover),
+                SizedBox(height: 20),
+                Text(
+                  doujin.title,
+                  style: TextStyle(
+                    fontSize: 20.0,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
-              ),
-              SizedBox(height: 20),
-              Text('#${doujin.id}')
-            ],
+                SizedBox(height: 20),
+                Text('#${doujin.id}'),
+                SizedBox(height: 20),
+                DoujinPageList(doujin.pageImages),
+              ],
+            ),
           ),
         ),
       ),

@@ -1,4 +1,4 @@
-import 'package:nh_android_app/models/page.dart';
+import 'package:nh_android_app/models/page_image.dart';
 
 class Doujin {
   final int id;
@@ -6,10 +6,10 @@ class Doujin {
   final String title;
   final String thumbnail;
   final String cover;
-  final List<Page> pages;
+  final List<PageImage> pageImages;
 
   Doujin(this.id, this.mediaId, this.title, this.thumbnail, this.cover,
-      this.pages);
+      this.pageImages);
 
   Doujin.fromJson(Map<String, dynamic> json)
       : id = json["id"].runtimeType == String
@@ -21,5 +21,7 @@ class Doujin {
         title = json["title"]["english"],
         thumbnail = json["thumbnail"]["url"],
         cover = json["cover"]["url"],
-        pages = json["pages"].map<Page>((page) => Page.fromJson(page)).toList();
+        pageImages = json["pages"]
+            .map<PageImage>((page) => PageImage.fromJson(page))
+            .toList();
 }
